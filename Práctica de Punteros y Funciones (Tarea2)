@@ -1,0 +1,113 @@
+#include <iostream>
+
+struct MiEstructura1
+{
+    int d1= 5;
+    char d2='b';
+    float d3= 3.877;
+    char d4= 'e';
+    double d5= 3.242526242526;
+    int d6= 45;
+}varstruct1;
+
+//,varstruct2,varstruct3,varstruct4,varstruct5,varstruct6
+
+
+struct MiEstructura2
+{
+    int a= 0;
+    int b= 0;
+    float c= 2.00;
+    char d= 'e';
+    char e= 'g';
+    double f= 0.00;
+
+}varstruct2;
+
+//,varstruct2,varstruct3,varstruct4,varstruct5,varstruct6
+
+
+int main()
+{
+    int str1_int1;
+    //int *ptr=nullptr;
+    char *my_string = "Esta es mi cadena";
+
+    std::cout<<"Cadena my_string: ";
+
+    //MiEstructura1 *ptr1=&varstruct1;
+    
+   //str1_int1=(*ptr1->d1);
+   
+   //struct1
+   varstruct1.d1;
+   MiEstructura1 *ptr=&varstruct1;
+   std::cout<<"valor de int1 estructura 1: "<<ptr->d1<<"\n";
+   std::cout<<"valor de char estructura 1: "<<ptr->d2<<"\n";
+   std::cout<<"valor de float estructura 1: "<<ptr->d3<<"\n";
+   std::cout<<"valor de char estructura 1: "<<ptr->d4<<"\n";
+   std::cout<<"valor de double estructura 1: "<<ptr->d5<<"\n";
+   std::cout<<"valor de int estructura 1: "<<ptr->d6<<"\n";
+   
+   //struct2
+   
+   varstruct2.a;
+   MiEstructura2 *ptr2=&varstruct2;
+   std::cout<<"valor de int1 estructura 2: "<<ptr2->a<<"\n";
+   std::cout<<"valor de char estructura 2: "<<ptr2->b<<"\n";
+   std::cout<<"valor de float estructura 2: "<<ptr2->c<<"\n";
+   std::cout<<"valor de char estructura 2: "<<ptr2->d<<"\n";
+   std::cout<<"valor de double estructura 2: "<<ptr2->f<<"\n";
+   
+   
+  // casting Estructura 1 
+  std::cout<<"type casting "<<*((int*)ptr); "\endl"; 
+  std::cout<<"type casting "<<*((char*)ptr+4); "\endl"; 
+  std::cout<<"type casting "<<*((float*)ptr+2); "\endl"; 
+  std::cout<<"type casting "<<*((char*)ptr+12); "\endl"; 
+  std::cout<<"type casting "<<*((double*)ptr+12); "\endl"; 
+  std::cout<<"type casting "<<*((int*)ptr+23); "\endl"; 
+  
+ 
+   
+   
+  // casting Estructura 2 
+  //std::cout<<*((int*)ptr)<<;  //ir contando la posicion del tipo de dato(int 4 bytes )
+  std::cout<<"type casting "<<*((int*)ptr);"\endl"; 
+  std::cout<<"type casting "<<*((char*)ptr+4); "\endl"; 
+  std::cout<<"type casting "<<*((float*)ptr+2);"\endl";  
+  std::cout<<"type casting "<<*((char*)ptr+12); "\endl"; 
+  std::cout<<"type casting "<<*((double*)ptr+2);"\endl"; 
+  
+    //Funcion Size 
+    //(Tamaño de la Estructura 1)
+
+  std::cout << "El tamaño de la estructura 1 es: " << sizeof(MiEstructura1) <<"\endl";
+
+    /*compilacion realizada en gdb online, en este caso la variable double de la estructura tiene un 
+   tamaC1o de 8 bytes por lo que los espacios son de 8 bytes, la variable int y char, gastan 5 bytes
+   de los 8; por lo que se pasa al siguiente bloque de 8 bytes, gastada por la variable de tipo
+   float y char, en este gastando un total de 5 bytes, la variable double como mencionamos antes 
+   se gasta los 8 bytes del bloque siguiente de memoria y en el ultimo bloque de 8 solo se gastan 
+   4 bytes por la variable int. Generando 4 bloques de 8 bytes por lo tanto 8 * 4 = 32 bytes */
+   
+   
+   //(Tamaño de la Estructura 2)
+   std::cout << "El tamaño de la estructura 2 es: " << sizeof(MiEstructura2) <<"\endl";
+   /*el compilador en este caso optimiza el uso del espacio en memoria, por lo que cada variable
+   tiene un valor de 4 bytes menos las variables tipo char que ocupan un byte, sereparten de la 
+   siguiente forma. Las 2 variables enteras ocupan el primer bloque de 8 bytes, luego la variable
+   tipo float y las dos tipo char ocupan 6 bytes de memoria por lo que se pasa al siguiente
+   bloque, luego se ocupan 4 bytes del bloque. los bloques son de 8 por lo que 8 * 3 = 24 */
+    
+  // std::cout << sizeof(dbl1_es2) << std::endl;
+
+    
+
+
+
+   // MiEstructura2;
+
+
+    return 0;
+}
