@@ -1,4 +1,19 @@
+
 #include <iostream>
+using namespace std;
+
+void foo_funtion(void);
+void Init_Fifo(void);
+void Write_Fifo(void);
+void Read_Fifo(void);
+int i=0, b=0;  // valor global para foo funtion
+int FIFO[19];
+//int save=0;
+int *ptrP=nullptr;
+int pass=3;
+int *ptrW=nullptr;
+int *ptrR=nullptr;
+//int *ptrP=nullptr;
 
 struct MiEstructura1
 {
@@ -10,7 +25,7 @@ struct MiEstructura1
     int d6= 45;
 }varstruct1;
 
-//,varstruct2,varstruct3,varstruct4,varstruct5,varstruct6
+
 
 
 struct MiEstructura2
@@ -24,7 +39,7 @@ struct MiEstructura2
 
 }varstruct2;
 
-//,varstruct2,varstruct3,varstruct4,varstruct5,varstruct6
+
 
 
 int main()
@@ -81,33 +96,86 @@ int main()
   
     //Funcion Size 
     //(Tamaño de la Estructura 1)
+   std::cout << "El tamaño de la estructura 1 es: " << sizeof(MiEstructura1) <<"\endl";
 
-  std::cout << "El tamaño de la estructura 1 es: " << sizeof(MiEstructura1) <<"\endl";
-
-    /*compilacion realizada en gdb online, en este caso la variable double de la estructura tiene un 
-   tamaC1o de 8 bytes por lo que los espacios son de 8 bytes, la variable int y char, gastan 5 bytes
-   de los 8; por lo que se pasa al siguiente bloque de 8 bytes, gastada por la variable de tipo
-   float y char, en este gastando un total de 5 bytes, la variable double como mencionamos antes 
-   se gasta los 8 bytes del bloque siguiente de memoria y en el ultimo bloque de 8 solo se gastan 
-   4 bytes por la variable int. Generando 4 bloques de 8 bytes por lo tanto 8 * 4 = 32 bytes */
-   
-   
-   //(Tamaño de la Estructura 2)
+    //(Tamaño de la Estructura 2)
    std::cout << "El tamaño de la estructura 2 es: " << sizeof(MiEstructura2) <<"\endl";
-   /*el compilador en este caso optimiza el uso del espacio en memoria, por lo que cada variable
-   tiene un valor de 4 bytes menos las variables tipo char que ocupan un byte, sereparten de la 
-   siguiente forma. Las 2 variables enteras ocupan el primer bloque de 8 bytes, luego la variable
-   tipo float y las dos tipo char ocupan 6 bytes de memoria por lo que se pasa al siguiente
-   bloque, luego se ocupan 4 bytes del bloque. los bloques son de 8 por lo que 8 * 3 = 24 */
+   
+ 
     
-  // std::cout << sizeof(dbl1_es2) << std::endl;
+   // Funcion Foo
 
-    
+   foo_funtion();
+   foo_funtion();
+   foo_funtion();
+   foo_funtion();
+
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   Write_Fifo();
+   
+  return 0;
+}
+
+void foo_funtion(void)
+{
+    int arreglo[4]={2,4,6,8};
+    int *ptr3;
+    ptr3 = arreglo;
+    std::cout<< "puntero vector "<<*(ptr3+i)<< std::endl;
+    i= i+1;
+
+    if(i>=4){
+    i=0;
+    }
+
+}
 
 
 
-   // MiEstructura2;
+void Init_Fifo(void)
+{
+    ptrR=&FIFO[0];
+    ptrW=&FIFO[0];
+
+}
 
 
-    return 0;
+
+
+void Write_Fifo(void)
+{
+
+if (b<20)
+    {  
+       int *ptrP=pass; 
+        ptrW+b==0;
+        cout<<"posicion "<<b<<" es "<< FIFO[b]<<"\n\n";
+        b=b+1;
+    }
+else {
+    b=0;
+
+ cout<<"la fifo esta llena"<<"\n\n";
+    }
+
+
 }
